@@ -1,0 +1,36 @@
+
+
+
+mat-hint {
+  font-style: italic; /* Pone el texto en cursiva */
+  font-weight: 300; /* Hace el tono más ligero (puedes probar 200 o 400 si lo ves muy claro/oscuro) */
+  color: #636060; /* Un tono de gris más suave para la advertencia. Puedes ajustar el color si quieres uno más específico */
+}
+
+
+/* Estilos para el botón Registrar (Verde Pastel) */
+.btn-registrar-pastel {
+  background-color: #A3D8B0 !important; /* Verde pastel */
+  color: #333333 !important; /* Color de texto que contraste */
+} 
+
+.btn-registrar-pastel:hover {
+  background-color: #65a873 !important; /* Un poco más oscuro al pasar el mouse */
+}
+
+/* Estilos para el botón Limpiar (Amarillo Pastel) */
+.btn-limpiar-pastel {
+  background-color: #FFECB3 !important; /* Amarillo pastel */
+  color: #333333 !important; /* Color de texto que contraste */
+}
+
+.btn-limpiar-pastel:hover {
+  background-color: #FFDD80 !important; /* Un poco más oscuro al pasar el mouse */
+}
+
+/* Puedes añadir más estilos si quieres cambiar el efecto de sombra o ripple al hacer clic */
+/* Por ejemplo, para cambiar el color del ripple (efecto de agua) en Material */
+/* .btn-registrar-pastel .mat-button-ripple {
+  background-color: rgba(0, 100, 0, 0.2) !important;
+} */
+
