@@ -1,0 +1,22 @@
+
+
+
+/* Estilos para el botón Registrar (Verde Pastel) */
+.btn-iniciar {
+  background-color: #A3D8B0 !important; /* Verde pastel */
+  color: #333333 !important; /* Color de texto que contraste */
+} 
+
+.btn-iniciar:hover {
+  background-color: #65a873 !important; /* Un poco más oscuro al pasar el mouse */
+}
+
+/* Estilos para el botón Limpiar (Amarillo Pastel) */
+.btn-limpiar {
+  background-color: #FFECB3 !important; /* Amarillo pastel */
+  color: #333333 !important; /* Color de texto que contraste */
+}
+
+.btn-limpiar:hover {
+  background-color: #FFDD80 !important; /* Un poco más oscuro al pasar el mouse */
+}
