@@ -10,6 +10,7 @@
           </div>
           <h1 class="text-center">Inicio de sesión</h1>
           <form action="">   <!--(ngSubmit)="formSubmit()"-->
+    
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Nombre de usuario</mat-label>
               <input [(ngModel)]="loginData.username" name="username" required matInput
@@ -22,6 +23,7 @@
                 placeholder="Digite su contraseña">
               <mat-hint>La contraseña debe ser valida</mat-hint>
             </mat-form-field>
+    
             <br><br>
             <div class="container text-center">
               <button type="submit" mat-raised-button class="btn-iniciar" color="primary">Iniciar sesión</button>

@@ -1,0 +1,33 @@
+
+
+/* src/app/components/navbar/navbar.component.css */
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+/* Estilos para el mat-toolbar */
+mat-toolbar {
+  /* Color de fondo: azul claro */
+  background-color: #bad2e6 !important; /* Material Design Light Blue 100, puedes usar otro código hexagonal */
+  /* Si el color no se aplica, es posible que 'color="primary"' lo esté sobrescribiendo.
+     El '!important' fuerza la aplicación de este color. */
+
+  /* Altura delgada: Ajusta el padding para reducir la altura */
+  height: 56px; /* Altura estándar de un toolbar denso en Material Design */
+  min-height: 56px; /* Asegura que la altura mínima sea esta */
+  padding: 0 16px; /* Ajusta el padding horizontal si lo deseas */
+}
+
+/* Opcional: Ajustar el tamaño de los iconos y botones si se ven raros con la nueva altura */
+mat-toolbar .mat-icon {
+  font-size: 24px; /* Tamaño estándar para iconos */
+  width: 24px;
+  height: 24px;
+}
+
+mat-toolbar .mat-mdc-button,
+mat-toolbar .mat-mdc-icon-button {
+  height: 48px; /* Altura estándar de un botón */
+  line-height: 48px; /* Centra el texto verticalmente */
+}
