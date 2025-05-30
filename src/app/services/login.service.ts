@@ -71,10 +71,13 @@ export class LoginService {
   // Obtenemos el rol del usuario (asumiendo que user.authorities[0].authority existe)
   public getUserRole() {
     let user = this.getUser();
-    if (user && user.authorities && user.authorities.length > 0) {
-        return user.authorities[0].authority;
-    }
-    return null; // Retorna null si no se puede obtener el rol
+    return user.authorities[0].authorities; // Retorna null si no se puede obtener el rol
   }
+
+
+
+
+
+
 
 }

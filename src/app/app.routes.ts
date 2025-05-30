@@ -3,6 +3,10 @@ import { Routes } from '@angular/router';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { AdminGuard } from './services/admin.guard';
+import { NormalGuard } from './services/normal.guard';
 
 export const routes: Routes = [
   // Ruta por defecto que redirige a Home
@@ -25,10 +29,28 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  // =========================================================================
+  // RUTAS PROTEGIDAS
+  // =========================================================================
+
+  // Ruta protegida para administradores
+  {
+    path: 'admin',
+    component: DashboardComponent,
+    canActivate: [AdminGuard] // <--- ¡AQUÍ APLICAS EL ADMIN GUARD!
+  },
+  // Ruta protegida para usuarios normales
+  {
+    path: 'user-dashboard',
+    component: UserDashboardComponent,
+    canActivate: [NormalGuard] // <--- ¡AQUÍ APLICAS EL USER GUARD!
   }
+
+];
   // Puedes dejar pathMatch: 'full' en todas, pero para rutas más complejas o anidadas,
   // a veces se usa 'prefix'. Para este caso simple, no debería ser el problema si navegas bien.
-];
+
 
 
 
