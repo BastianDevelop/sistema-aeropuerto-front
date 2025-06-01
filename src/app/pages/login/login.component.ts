@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ import { LoginService } from '../../services/login.service';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
     "password": '',
   }
 
-  constructor(private snack:MatSnackBar, private loginService:LoginService) { }
+  constructor(private snack:MatSnackBar, private loginService:LoginService, private router: Router) { }
   
   ngOnInit(): void {  }
 
@@ -41,31 +42,43 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+
     this.loginService.generateToken(this.loginData).subscribe(
       (data: any) => {
         console.log(data);
-          this.loginService.loginUser(data.token);
-          this.loginService.getCurrentUser().subscribe((user: any) => {
-            this.loginService.setUser(user);
+        this.loginService.loginUser(data.token); // Esto guarda el token
+        this.loginService.getCurrentUser().subscribe( // Obtienes la info del usuario
+          (user: any) => {
+            this.loginService.setUser(user); // Guardas la info del usuario (incluyendo roles)
             console.log(user);
+
+            // --- ¡CAMBIO AQUÍ! ---
             if (this.loginService.getUserRole() === 'ADMIN') {
-              // Navegar a la página de administrador
-              window.location.href = '/admin';
-            }else if (this.loginService.getUserRole() === 'NORMAL') {
-              // Navegar a la página de usuario normal
-              window.location.href = '/user-dashboard';
+              this.router.navigate(['/admin']); // Navega SIN recargar la página
+            } else if (this.loginService.getUserRole() === 'NORMAL') {
+              this.router.navigate(['/user-dashboard']); // Navega SIN recargar la página
             } else {
-              this.loginService.logout();
+              this.loginService.logout(); // Si no tiene un rol válido, cierra sesión
             }
-          })
-      },(error) => {
+
+          },
+          (errorUser) => { // Es buena práctica manejar errores también aquí
+            console.error('Error al obtener el usuario actual:', errorUser);
+            this.snack.open('Error al cargar datos de usuario. Intente de nuevo.', 'Aceptar', {
+              duration: 3000,
+            });
+            this.loginService.logout(); // Cierra sesión si falla la obtención del usuario
+          }
+        )
+      },
+      (error) => {
         console.log(error);
         this.snack.open('Detalles de usuario incorrectos', 'Aceptar', {
           duration: 3000,
         });
       }
-
     )
+
   }
 
 }
