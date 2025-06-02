@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
       });
       return;
     }
-
-
+    
     this.loginService.generateToken(this.loginData).subscribe(
       (data: any) => {
         console.log(data);
@@ -55,8 +54,10 @@ export class LoginComponent implements OnInit {
             // --- ¡CAMBIO AQUÍ! ---
             if (this.loginService.getUserRole() === 'ADMIN') {
               this.router.navigate(['/admin']); // Navega SIN recargar la página
+              this.loginService.loginStatusSubjec.next(true); // Notifica que el usuario ha iniciado sesión
             } else if (this.loginService.getUserRole() === 'NORMAL') {
               this.router.navigate(['/user-dashboard']); // Navega SIN recargar la página
+              this.loginService.loginStatusSubjec.next(true); // Notifica que el usuario ha iniciado sesión
             } else {
               this.loginService.logout(); // Si no tiene un rol válido, cierra sesión
             }

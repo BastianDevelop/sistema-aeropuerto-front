@@ -7,6 +7,7 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
   // Ruta por defecto que redirige a Home
@@ -38,7 +39,14 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: DashboardComponent,
-    canActivate: [AdminGuard] // <--- ¡AQUÍ APLICAS EL ADMIN GUARD!
+    canActivate: [AdminGuard], // <--- ¡AQUÍ APLICAS EL ADMIN GUARD!
+    children:[
+      {
+        path: 'profile',
+        component: ProfileComponent
+
+      }
+    ]
   },
   // Ruta protegida para usuarios normales
   {

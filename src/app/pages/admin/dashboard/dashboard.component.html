@@ -1,2 +1,17 @@
 
-<h1>Bienvenido al panel de administrador</h1>
+
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <app-sidebar></app-sidebar>
+        
+      </div>
+
+      <div class="col-md-9">
+        <router-outlet></router-outlet>
+        <h3>Contenido</h3>
+      </div>
+    </div>
+  </div>
+</div>
