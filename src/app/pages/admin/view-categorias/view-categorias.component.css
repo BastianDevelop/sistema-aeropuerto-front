@@ -1,0 +1,60 @@
+
+
+/* Asegura que la tarjeta tenga un poco de margen para no pegarse a los bordes */
+mat-card {
+  margin: 20px; /* Un margen general para la tarjeta */
+  padding: 0; /* Por si el padding de la tarjeta interfiere */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sutil sombra para un mejor aspecto */
+}
+
+/* Estilos para el contenedor de la lista */
+mat-list {
+  padding-top: 0; /* Remueve padding superior si la lista se ve muy separada del subheader */
+  padding-bottom: 0; /* Remueve padding inferior */
+}
+
+/* Estilos para el subheader si necesitas más espacio */
+div[mat-subheader] {
+  padding: 16px 16px 8px 16px; /* Padding típico: top, right, bottom, left */
+  font-size: 1.1em;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/* Ajusta el espaciado y tamaño de los ítems de la lista */
+mat-list-item {
+  height: auto !important; /* Permite que el ítem se ajuste al contenido si el texto es largo */
+  min-height: 48px; /* Altura mínima estándar para ítems de lista */
+  padding: 8px 16px; /* Padding interno del ítem para texto e icono */
+  display: flex; /* Asegura que mat-list-item use flexbox correctamente */
+  align-items: center; /* Centra verticalmente los elementos dentro del ítem */
+}
+
+/* Estilo para la descripción de la categoría para darle un poco más de espacio o color */
+.descripcion-categoria {
+  color: rgba(0, 0, 0, 0.6); /* Un color de texto más suave para la descripción */
+  font-size: 0.9em;
+  margin-top: 4px; /* Un pequeño margen superior para separarlo del título */
+}
+
+/* Ajusta el margen inferior del botón, si mt20 no funciona bien */
+.mt20 {
+  margin-top: 20px !important; /* Asegura que se aplique el margen */
+}
+
+/* Asegura que el botón dentro del contenedor se centre */
+.container.text-center {
+  padding: 20px; /* Padding dentro del contenedor para el botón */
+}
+
+/* Estilos para los iconos dentro de la lista */
+mat-list-item mat-icon {
+  margin-right: 16px; /* Espacio entre el icono y el texto */
+}
+
+/* Ajustes para mat-line si necesitas controlar su alineación o distribución */
+mat-list-item [mat-line] {
+  white-space: normal; /* Permite que el texto se envuelva en varias líneas si es largo */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es demasiado largo */
+}
