@@ -8,6 +8,7 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 
 export const routes: Routes = [
   // Ruta por defecto que redirige a Home
@@ -44,7 +45,10 @@ export const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
-
+      },
+      {
+        path: '',
+        component: WelcomeComponent // Componente de bienvenida para administradores
       }
     ]
   },
