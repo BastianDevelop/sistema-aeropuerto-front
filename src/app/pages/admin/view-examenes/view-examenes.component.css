@@ -1,0 +1,6 @@
+
+
+.example-header-image {
+  background-image: url('/images/test.png');
+  background-size: cover;
+}
