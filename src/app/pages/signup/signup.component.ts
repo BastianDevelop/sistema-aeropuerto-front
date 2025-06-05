@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
+import { MatCard } from '@angular/material/card';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,8 @@ import Swal from 'sweetalert2';
     MatInputModule,
     FormsModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCard
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'

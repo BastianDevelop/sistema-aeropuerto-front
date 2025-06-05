@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SignupComponent } from './pages/signup/signup.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,7 @@ import { SignupComponent } from './pages/signup/signup.component';
   imports:[CommonModule,
           RouterOutlet,
           NavbarComponent,
-          SignupComponent
+          NgxUiLoaderModule
           ],
 
   templateUrl: './app.component.html',
